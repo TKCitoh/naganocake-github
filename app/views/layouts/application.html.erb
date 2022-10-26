@@ -45,7 +45,7 @@
         <i class="fas fa-sign-out-alt"></i> ログアウト
         <% end %>
       </li>
-    <% elsif public_signed_in? %>
+    <% elsif customer_signed_in? %>
       <li class="nav-link text-light">
        <%= link_to public_customers_path do %>
        <i class="fas fa-home"></i> マイページ
