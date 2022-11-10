@@ -7,18 +7,16 @@ Rails.application.routes.draw do
     resources :orders,        only: [:show, :update]
     resources :order_details, only: [:update]
   end
+
   namespace :public do
-    root to: "homes#top"
-    get 'about' => 'homes#about'
+
     resources :items,     only: [:index, :show]
-    resources :customers, only: [:show, :edit, :update] do
-        collection do
-            get 'unsubscribe'
-        end
-        collection do
-            patch 'withdraw'
-        end
-    end
+    get 'customers/my_page' => 'customers#show'
+    get 'customers/information/edit' => 'customers#edit'
+    patch 'customers/information' => 'customers#update'
+    get 'customers/unsubscribe' => 'customers#unsubscribe'
+    patch 'customers/withdraw' => 'customers#withdraw'
+
     resources :cart_items,only: [:create, :index, :destroy, :update] do
         collection do
             delete 'destroy_all'
@@ -34,6 +32,9 @@ Rails.application.routes.draw do
     end
     resources :address,   only: [:create, :index, :destroy, :edit, :update]
   end
+
+  root to: "public/homes#top"
+  get 'about' => 'public/homes#about'
 
  # 顧客用
  # URL /customers/sign_in ...
