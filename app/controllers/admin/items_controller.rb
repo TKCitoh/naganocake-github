@@ -8,6 +8,9 @@ class Admin::ItemsController < ApplicationController
   end
 
   def create
+    item = Itme.new(item_params)
+    item.save
+    redirect_to admin_item_path
   end
 
   def show
@@ -17,5 +20,11 @@ class Admin::ItemsController < ApplicationController
   end
 
   def update
+  end
+
+  private
+  # ストロングパラメータ
+  def item_params
+    params.require(:item).permit(:name,:introduction,:price,:image)
   end
 end
