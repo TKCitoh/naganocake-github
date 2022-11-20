@@ -8,15 +8,17 @@ class Admin::ItemsController < ApplicationController
   end
 
   def create
-    item = Itme.new(item_params)
-    item.save
-    redirect_to admin_item_path
+    @item = Item.new(item_params)
+    @item.save
+    redirect_to admin_items_path
   end
 
   def show
+    @item = Item.find(params[:id])
   end
 
   def edit
+    @item = Item.find(params[:id])
   end
 
   def update
