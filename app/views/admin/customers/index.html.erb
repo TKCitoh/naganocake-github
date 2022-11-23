@@ -8,5 +8,20 @@
 	        <th>メールアドレス</th>
 	        <th>ステータス</th>
 	      </tr>
-	     </thead>
-	     
+	    </thead>
+	    <tbody>
+	    	<% @customers.each do |customer| %>
+	    	 <tr>
+          <th><%= customer.id %></th>
+          <th><%= link_to admin_customer_path(customer) do %>
+             <%= customer.name %>
+             <% end %>
+          </th>
+          <th><%= customer.email %></th>
+         </tr>
+        <% end %>
+	    </tbody>
+	   </table>
+	 </h2>
+</div>
+
