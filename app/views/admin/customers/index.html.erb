@@ -12,12 +12,12 @@
 	    <tbody>
 	    	<% @customers.each do |customer| %>
 	    	 <tr>
-          <th><%= customer.id %></th>
-          <th><%= link_to admin_customer_path(customer) do %>
+          <td><%= customer.id %></td>
+          <td><%= link_to admin_customer_path(customer) do %>
              <%= customer.name %>
              <% end %>
-          </th>
-          <th><%= customer.email %></th>
+          </td>
+          <td><%= customer.email %></td>
          </tr>
         <% end %>
 	    </tbody>
