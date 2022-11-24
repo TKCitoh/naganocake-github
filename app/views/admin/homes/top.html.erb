@@ -11,12 +11,9 @@
 	    <tbody>
 	    	<% @orders.each do |order| %>
 	    	 <tr>
-          <td><%= order.id %></td>
-          <th><%= link_to admin_customer_path(customer) do %>
-             <%= customer.name %>
-             <% end %>
-          </th>
-          <th><%= customer.email %></th>
+          <td><%= link_to admin_order_path(order) %></td>
+          <td><%= order.customer.first_name %><% order.customer.last_name %></td>
+          <th></th>
          </tr>
         <% end %>
 	    </tbody>
