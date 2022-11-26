@@ -60,3 +60,6 @@ gem "net-pop"
 gem "net-imap"
 
 gem 'devise'
+gem 'pry-byebug'
+
+gem "enum_help"
