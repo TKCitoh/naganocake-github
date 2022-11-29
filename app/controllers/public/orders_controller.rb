@@ -5,6 +5,8 @@ class Public::OrdersController < ApplicationController
 
   def confirm
     @order = Order.new(order_params)
+    @cart_items = CartItem.all
+    @sum = 0
   end
 
   def complete

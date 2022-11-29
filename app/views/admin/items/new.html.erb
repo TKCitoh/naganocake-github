@@ -1,34 +1,30 @@
-<div class="row login-row">
-	<div class = "body" style>
-		<div class = "container">
-			<h2>商品新規登録</h2>
-			<%= form_with model: @item, url: admin_item_path, method: :post do |f| %>
-			<div class="col-xs-5">
-        	 <div class="field">
-        		 <%= f.label :商品画像 %>
-           <%= f.file_field :image, accept: "image/*" %>
-        	 </div>
-            </div>
-            <div class="col-xs-7">
-             <div class="field">
-            	<%= f.label :name, "商品名" %>
-            	<%= f.text_field :name %>
-             </div>
-             <div class="field">
-            	<%= f.label :introduction, "商品説明" %>
-            	<%= f.text_area :introduction %>
-             </div>
-             <div class="field">
-            	<%= f.label :price, "税抜価格" %>
-            	<%= f.text_field :price %>
-            	円
-             </div>
-             <div class="actions row">
-    		        <%= f.submit "新規登録",class:"btn btn-primary col-xs-12" %>
-             </div>
-            </div>
-           <% end %>
+<div class = "container">
+		<h2>商品新規登録</h2>
+		<%= form_with model: @item, url: admin_items_path, method: :post do |f| %>
+		  <div class="col-md-5">
+        <div class="field">
+        		<%= f.label :商品画像 %>
+          <%= f.file_field :image, accept: "image/*" %>
         </div>
-    </div>
+      </div>
+      <div class="col-md-5">
+        <div class="field">
+          <%= f.label :name, "商品名" %>
+          <%= f.text_field :name %>
+        </div>
+        <div class="field">
+          <%= f.label :introduction, "商品説明" %>
+          <%= f.text_area :introduction %>
+        </div>
+        <div class="field">
+          <%= f.label :price, "税抜価格" %>
+          <%= f.text_field :price %>
+          円
+        </div>
+        <div class="actions row">
+    		    <%= f.submit "新規登録",class:"btn btn-primary col-xs-12" %>
+        </div>
+      </div>
+      <% end %>
  </div>
 
