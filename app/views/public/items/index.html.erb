@@ -5,18 +5,19 @@
 		 <% @items.each do |item| %>
 		  <div class="item-box">
 			<table class="table">
-        <tr>
-            <th><%= image_tag item.get_image(100,100) %>
+             <tr>
+               <th><%= image_tag item.get_image(100,100) %>
                 <%= link_to public_item_path(item) %></th>
-        </tr>
-        <tr>
-            <th><%= link_to item.name, public_item_path(item) %></th>
-        </tr>
-        <tr>
-            <th><%= item.price %></th>
-        </tr>
-     </table>
+             </tr>
+             <tr>
+               <th><%= link_to item.name, public_item_path(item) %></th>
+             </tr>
+             <tr>
+               <th><%= item.price %></th>
+             </tr>
+            </table>
+         </div>
+         <% end %>
+        </div>
     </div>
-    <% end %>
-  </div>
 </div>
