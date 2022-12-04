@@ -1,23 +1,23 @@
-<div class="row login-row">
-	<div class = "body" style>
-		<div class = "container">
-		 <h2>商品一覧（全件）</h2>
-		 <% @items.each do |item| %>
-		  <div class="item-box">
-			<table class="table">
-             <tr>
-               <th><%= image_tag item.get_image(100,100) %>
-                <%= link_to public_item_path(item) %></th>
-             </tr>
-             <tr>
-               <th><%= link_to item.name, public_item_path(item) %></th>
-             </tr>
-             <tr>
-               <th><%= item.price %></th>
-             </tr>
-            </table>
-         </div>
-         <% end %>
+<div class="container">
+		 <h2>商品一覧</h2>
+		 　<div class="row">
+		    <% @items.each do |item| %>
+		      <div class="col-xs-3">
+		        <table class="table table-bordered">
+            <tr>
+             <td><%= link_to public_item_path(item) do %>
+                 <%= image_tag item.get_image(100,100) %>
+                 <% end %>
+             </td>
+            <tr>
+             <td><%= link_to item.name, public_item_path(item) %></td>
+            </tr>
+            <tr>
+             <td><%= item.price %></td>
+            </tr>
+          </table>
         </div>
+      <% end %>
     </div>
 </div>
+
