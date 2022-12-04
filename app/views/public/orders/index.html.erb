@@ -1,6 +1,6 @@
 <div class="container">
   <h2>注文履歴一覧</h2>
-   <table class="table table-bordered">
+    <table class="table table-bordered">
      <thead>
        <tr>
          <th>注文日</th>
@@ -11,14 +11,13 @@
        </tr>
      </thead>
      <tbody>
-     <%= @orders.each do |f| %>
+     <% @orders.each do |order| %>
        <tr>
          <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
          <td><%= order.address %></td>
-         <!--後でメンターさんに聞く-->
-         <td></td>
+         <td><%= order.name %></td>
          <td><%= order.total_amount %></td>
-         <td><%= link_to "表示する", public_order_path(current_customer.id), class: 'btn btn-primary' %></td>
+         <td><%= link_to "表示する", public_order_path(order), class: 'btn btn-primary' %></td>
        </tr>
       <% end %>
      </tbody>
