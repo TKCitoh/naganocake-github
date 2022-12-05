@@ -15,7 +15,7 @@
           	  <%= order.created_at.strftime('%Y/%m/%d') %>
           	  <% end %>
           </th>
-          <td><%= order.customer.last_name %><% order.customer.first_name %></td>
+          <td><%= order.customer.last_name %><%= order.customer.first_name %></td>
           <td><%= order.order_details.sum(:amount) %></td>
          </tr>
         <% end %>

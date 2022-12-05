@@ -20,6 +20,9 @@ class Public::SessionsController < Devise::SessionsController
   # end
 
   # protected
+  def after_sign_in_path_for(resource)
+    root_path
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
@@ -36,7 +39,7 @@ class Public::SessionsController < Devise::SessionsController
   if @customer.valid_password?(params[:customer][:password])
     ## 【処理内容3】
   if @customer.is_deleted
-    redirect_to new_cutomer_registration_path
+    redirect_to new_customer_registration_path
   else
   end
   end
